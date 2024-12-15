@@ -15,8 +15,13 @@ int main(int argc, char ** argv) {
 	if (b == NULL) return -2;
 	printToScreen(A);
 	printToScreen(b);
+	
+	printf("\n\n");
 
 	res = eliminate(A,b);
+
+	printToScreen(A);
+
 	x = createMatrix(b->r, 1);
 	if (x != NULL) {
 		res = backsubst(x,A,b);
