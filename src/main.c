@@ -25,9 +25,18 @@ int main(int argc, char ** argv) {
 	x = createMatrix(b->r, 1);
 	if (x != NULL) {
 		res = backsubst(x,A,b);
-
-		printToScreen(x);
-	  freeMatrix(x);
+		printf("\n");
+		switch(res){
+			case 0:
+				printToScreen(x);
+				freeMatrix(x);
+				break;
+			case 1:
+				printf("Błąd - prubowano podzielić przez 0 !\n");
+				break;
+			case 2:
+				printf("Błąd - niepoprawne wymiary macierzy !\n");
+				break;
 	} else {
 					fprintf(stderr,"Błąd! Nie mogłem utworzyć wektora wynikowego x.\n");
 	}
