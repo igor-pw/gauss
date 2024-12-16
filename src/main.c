@@ -37,7 +37,7 @@ int main(int argc, char ** argv) {
 			case 2:
 				printf("Błąd - niepoprawne wymiary macierzy !\n");
 				break;
-	} else {
+		}	} else {
 					fprintf(stderr,"Błąd! Nie mogłem utworzyć wektora wynikowego x.\n");
 	}
 
