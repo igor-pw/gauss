@@ -21,6 +21,7 @@ int main(int argc, char ** argv) {
 	res = eliminate(A,b);
 
 	printToScreen(A);
+	printToScreen(b);
 
 	x = createMatrix(b->r, 1);
 	if (x != NULL) {
@@ -32,7 +33,7 @@ int main(int argc, char ** argv) {
 				freeMatrix(x);
 				break;
 			case 1:
-				printf("Błąd - prubowano podzielić przez 0 !\n");
+				printf("Błąd - probowano podzielić przez 0 !\n");
 				break;
 			case 2:
 				printf("Błąd - niepoprawne wymiary macierzy !\n");
