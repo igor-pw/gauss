@@ -13,16 +13,16 @@ int main(int argc, char ** argv) {
 
 	if (A == NULL) return -1;
 	if (b == NULL) return -2;
+	printf("\n\n");
 	printToScreen(A);
 	printToScreen(b);
 	
-	printf("\n\n");
 
 	res = eliminate(A,b);
 
 	printToScreen(A);
 	printToScreen(b);
-
+	
 	x = createMatrix(b->r, 1);
 	if (x != NULL) {
 		res = backsubst(x,A,b);
