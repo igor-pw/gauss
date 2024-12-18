@@ -10,4 +10,5 @@
  */
 int  backsubst(Matrix *x, Matrix *mat, Matrix *b);
 
+double sum(Matrix *mat, Matrix *b, int i);
 #endif
