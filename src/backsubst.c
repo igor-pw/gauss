@@ -15,7 +15,7 @@ double sum(Matrix *mat, Matrix* x, int i){
 	return tmp;
 }	
 
-int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
+int backsubst(Matrix *x, Matrix *mat, Matrix *b) {
 	
 	if(x->r == mat->r && b->r == mat->r && mat->c == mat->r){
 	
