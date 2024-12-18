@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "gauss.h"
 
 /**
@@ -8,6 +9,8 @@ int eliminate(Matrix *mat, Matrix *b)
 {
 	for(int i = 0; i < mat->c; i++)
 	{
+		ReplaceRows(mat, b, i, i);
+		
 		for(int j = i+1; j < mat->r; j++)
 		{
 			if(mat->data[i][i] == 0)
@@ -29,4 +32,35 @@ int eliminate(Matrix *mat, Matrix *b)
 		return 0;
 }
 
+void ReplaceRows(Matrix *mat, Matrix *b, int col, int row)
+{
+        double max = abs(mat->data[row][col]);
+        int index;
+
+        for(int i = row; i < mat->r; i++)
+        {
+                if(max < abs(mat->data[i][col]))
+                {
+                        max = abs(mat->data[i][col]);
+                        index = i;
+                }
+        }
+
+        if(max != abs(mat->data[row][col]))
+        {
+                double temp;
+
+                for(int i = 0; i < mat->c; i++)
+                {
+                        temp = mat->data[row][i];
+                        mat->data[row][i] = mat->data[index][i];
+                        mat->data[index][i] = temp;
+                }
+
+                temp = b->data[row][0];
+                b->data[row][0] = b->data[index][0];
+                b->data[index][0] = temp;
+
+        }
+}
 
