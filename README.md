@@ -1,5 +1,5 @@
-#metoda gaussa lmp9
+# Metoda gaussa lmp9
 
 Ćwiczenie wykonane przez:
--Igor Podstolski, Student B
--Jakub Wołosz, student A
+- Igor Podstolski, Student B
+- Jakub Wołosz, student A
