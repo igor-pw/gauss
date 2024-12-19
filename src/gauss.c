@@ -1,13 +1,37 @@
 #include "gauss.h"
-
+#include <math.h>
 /**
  * Zwraca 0 - elimnacja zakonczona sukcesem
  * Zwraca 1 - macierz osobliwa - dzielenie przez 0
  */
+
+void pick_main_elem(Matrix *mat,Matrix *b, int i){
+        double tmp =fabs(mat->data[i][i]);
+        int max=i;
+        for(int k = i; k < mat->r; k++){
+                int tmpn = fabs(mat->data[k][i]);
+                if(tmpn>tmp){
+                        max=k;
+                        tmp=tmpn;
+                }
+        }
+        if(max != i){
+                for(int k = 0; k<mat->r; k++){
+                        tmp = mat->data[i][k];
+                        mat->data[i][k] = mat->data[max][k];
+                        mat->data[max][k] = tmp;
+                }
+                tmp = b->data[i][0];
+                b->data[i][0] = b->data[max][0];
+                b->data[max][0]=tmp;
+        }
+}
+
 int eliminate(Matrix *mat, Matrix *b)
 {
 	for(int i = 0; i < mat->c; i++)
 	{
+		pick_main_elem(mat,b,i);
 		for(int j = i+1; j < mat->r; j++)
 		{
 			if(mat->data[i][i] == 0)
@@ -28,4 +52,3 @@ int eliminate(Matrix *mat, Matrix *b)
 
 		return 0;
 }
-
