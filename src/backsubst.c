@@ -6,6 +6,7 @@
  */
 double sum(Matrix *mat, Matrix* x, int i){
 	double tmp = 0;
+	
 	for(int j = mat->c-1; j>=0; j--){
 		if(j != i){
 			tmp = tmp + ((x->data[j][0])*(mat->data[i][j]));
@@ -15,7 +16,7 @@ double sum(Matrix *mat, Matrix* x, int i){
 	return tmp;
 }	
 
-int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
+int backsubst(Matrix *x, Matrix *mat, Matrix *b) {
 	
 	if(x->r == mat->r && b->r == mat->r && mat->c == mat->r){
 	

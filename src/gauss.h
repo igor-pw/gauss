@@ -9,4 +9,5 @@
  */
 int eliminate(Matrix *mat, Matrix *b);
 
+void ReplaceRows(Matrix *mat, Matrix *b, int col, int row);
 #endif
